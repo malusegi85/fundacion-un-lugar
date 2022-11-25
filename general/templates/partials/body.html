@@ -1,0 +1,26 @@
+<!-- cargar la libreria de boostrap-->
+{% load bootstrap5 %}
+<!-- cargar el css y javascript de bootstrap-->
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!--cargar mensajes-->
+{% bootstrap_messages %}
+<!--Aqui empieza el contenido de la pagina-->
+
+<body>
+    {% include 'partials/header.html' %}
+
+   
+   {% block contenido %}
+    
+
+
+   {% endblock contenido %}
+       
+    
+
+    {% include 'partials/footer.html' %}
+    
+</body>
+
+<!--Aqui termina el contenido de la pagina-->
