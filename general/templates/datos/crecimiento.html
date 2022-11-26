@@ -1,0 +1,41 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+    <table>
+        <thead>
+            <th>Estatura</th>
+            <th>Peso</th>
+            <th>Enfermedad</th>
+            <th>Discapacidad</th>
+            <th>EPS</th>
+            <th>Talla de Camisa</th>
+            <th>Talla de Pantalos</th>
+            <th>Talla de Calzado</th>
+            <th>Beneficiario</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            
+            {% for crecimiento in crecimientos %}
+                <tr>
+                    <td>{{crecimiento.estatura}}</td>
+                    <td>{{crecimiento.peso}}</td>
+                    <td>{{crecimiento.enfermedad}}</td>
+                    <td>{{crecimiento.discapacidad}}</td>
+                    <td>{{crecimiento.eps}}</td>
+                    <td>{{crecimiento.tallaCamisa}}</td>
+                    <td>{{crecimiento.tallaPantalon}}</td>
+                    <td>{{crecimiento.tallaCalzado}}</td>
+                    <td>{{crecimiento.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock contenido %}
+    
