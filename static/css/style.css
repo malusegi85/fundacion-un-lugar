@@ -1,7 +1,7 @@
 .timepage{
     margin-left: 200px;
     padding: 10px;
-    margin-top: 90px;
+    margin-top: 70px;
     margin-bottom: 15px;
     padding-left: 25px;
     border-radius: 5px;
@@ -9,7 +9,6 @@
 }
 
 .contenido{
-    text-align: center;
-    padding: 50px;
-    margin: 15px;
+    text-align: center;    
+    margin: 80px;
 }

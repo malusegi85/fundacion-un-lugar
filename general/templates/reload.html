@@ -1,0 +1,85 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+    <script src="static/js/morris.js-0.5.1/examples/lib/example.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+    <script src="../static/js/morris.js-0.5.1/morris.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/js/morris.js-0.5.1/morris.css">
+
+  </head>
+
+  <input class="timepage" style="background-color: rgb(176, 238, 200)" size="3" id="timespent" name="timespent">Tiempo<br>
+
+    <div class="contenido">
+    
+        <body style="background-color: #f0f8ff;">
+        
+        <h1 class="m-5" style="color: #008">Recargando Sistema</h1>
+        
+      <div style="background-color: rgb(188, 215, 224)">
+      
+     <div id="graph"></div>
+     <div id="reloadStatus">
+     <pre id="code" class="prettyprint linenums">
+
+        var nReloads = 0;
+        function data(offset) {
+          var ret = [];
+          for (var x = 0; x <= 360; x += 10) {
+            var v = (offset + x) % 360;
+            ret.push({
+              x: x,
+              y: Math.sin(Math.PI * v / 180).toFixed(4),
+              z: Math.cos(Math.PI * v / 180).toFixed(4)
+            });
+          }
+          return ret;
+        }
+        var graph = Morris.Line({
+            element: 'graph',
+            data: data(0),
+            xkey: 'x',
+            ykeys: ['y', 'z'],
+            labels: ['sin()', 'cos()'],
+            parseTime: false,
+            ymin: -1.0,
+            ymax: 1.0,
+            hideHover: true
+        });
+        function update() {
+          nReloads++;
+          graph.setData(data(5 * nReloads));
+          $('#reloadStatus').text(nReloads + ' reloads');
+        }
+        setInterval(update, 100);      
+    </pre>
+  </div>
+</div>
+        
+
+  </div>
+ 
+    <script>
+      startday=new Date();clockStart=startday.getTime();function initStopwatch(){var myTime=new Date();return((myTime.getTime()-clockStart)/1000);}
+      function getSecs(){var tSecs=Math.round(initStopwatch());var iSecs=tSecs%60;var iMins=Math.round((tSecs-30)/60);var sSecs=""+((iSecs>9)?iSecs:"0"+iSecs);var sMins=""+((iMins>9)?iMins:"0"+iMins);document.getElementById('timespent').value=sMins+":"+sSecs;window.setTimeout('getSecs()',1000);}
+      window.onload = function(){
+      window.setTimeout('getSecs()',1);
+      }
+      </script>
+  </div>     
+</body>
+</html>
+{% endblock contenido %}

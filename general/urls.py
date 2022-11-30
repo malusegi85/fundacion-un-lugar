@@ -17,7 +17,7 @@ from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-from general.views import inicio, contenido
+from general.views import inicio, contenido, pagina404, pagina500, reload, ayuda, politica
 from general import settings
 from django.views.static import serve
 
@@ -25,6 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio , name="inicio"),
     path('contenido', contenido , name="contenido"),
+    path('pagina404', pagina404 , name="pagina404"),
+    path('pagina500', pagina500 , name="pagina500"),
+    path('ayuda', ayuda , name="ayuda"),
+    path('reload', reload , name="reload"),
+    path('politica', politica , name="politica"),
     path('usuarios/',include("usuarios.urls")),  
     path('datos/',include("datos.urls")),  
 
