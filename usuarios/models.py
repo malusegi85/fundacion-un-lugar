@@ -75,7 +75,7 @@ class Padrino_Beneficiario(models.Model):
     padrino= models.ForeignKey(Padrino, on_delete=models.CASCADE, verbose_name="Padrino")
     estado= models.BooleanField(default=False,verbose_name="Estado")
 
-#AQUI EMPIEZA LA REFERENCIA PERSONAL
+#AQUI EMPIEZA LAS REFERENCIAS
 class Referencia(models.Model):
     documento=models.CharField(unique=True, max_length=20,verbose_name="Número de Documento")
     class TipoDocumento(models.TextChoices):

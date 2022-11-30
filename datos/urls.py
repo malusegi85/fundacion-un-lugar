@@ -1,6 +1,6 @@
 from django.urls import path
 
-from datos.views import crecimiento,crecimiento_crear,socio_economico,socio_economico_crear
+from datos.views import crecimiento,crecimiento_crear,socio_economico,socio_economico_crear,programa
 from usuarios.views import usuarios
 
 
@@ -12,7 +12,7 @@ urlpatterns = [
     path('socio-economico/<int:pk>/',socio_economico_crear,name="socio-economicos-c"),
     path('socio-economicos/',socio_economico,name="socio-economicos"),
 
-    # path('programa/',programa,name="programa"),
+    path('programa/',programa,name="programa"),
     # path('programa-beneficiario/<int:pk>/',programa_beneficiarios,name="programa-beneficiarios"),
     # path('documentacion/<int:pk>/',documentacion,name="documentacion"),
     

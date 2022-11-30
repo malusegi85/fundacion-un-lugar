@@ -3,7 +3,7 @@ from usuarios.models import Beneficiario
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
-#AQUI EMPIEZA LA INFORMACION PERSONAL DEL BENEFICIARIO
+#AQUI EMPIEZA CRECIMIENTO DEL BENEFICIARIO
 class Crecimiento(models.Model):
     estatura= models.CharField(max_length=50, verbose_name="Estatura")    
     peso= models.CharField(max_length=50, verbose_name="Peso")
@@ -14,8 +14,6 @@ class Crecimiento(models.Model):
     tallaPantalon= models.CharField(max_length=50, verbose_name="Talla pantalon ")
     tallaCalzado= models.CharField(max_length=50, verbose_name="Talla de calzado")
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
-
-
 
 #AQUI EMPIEZA LA INFORMACION SOCIO ECONOMICA
 class Socio_Economico(models.Model):
@@ -33,16 +31,15 @@ class Socio_Economico(models.Model):
     servicioInternet=models.BooleanField(default=False,verbose_name="Tiene Servicio de Internet?")
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
     estado= models.BooleanField(default=False,verbose_name="Estado")
-
+    
+#AQUI EMPIEZA LOS PROGRAMAS Y ESTADOS DEL BENEFICIARIO
 class Programa(models.Model):
     nombre= models.CharField(max_length=50, verbose_name="Nombre")
     descripcion= models.CharField(max_length=50, verbose_name="Descripción")
-    estado= models.BooleanField(default=False,verbose_name="Estado")
-
-    
-#AQUI EMPIEZA LOS PROGRAMAS Y ESTADOS DEL BENEFICIARIO
-class Programas_Beneficiario(models.Model):
-    
+    estado= models.BooleanField(default=True,verbose_name="Estado")
+    def __str__(self):
+        return self.nombre
+class Programas_Beneficiario(models.Model):    
     programas=models.ForeignKey(Programa, on_delete=models.CASCADE, verbose_name="Programa")
     fecha=models.DateField(auto_now=True, verbose_name="Fecha de ingreso", help_text="DD/MM/AA")  
     class EstadoUsuario(models.TextChoices):
@@ -57,7 +54,7 @@ class Programas_Beneficiario(models.Model):
     estadoCarnet=models.CharField(max_length=20, choices=EstadoCarnet.choices, default=EstadoCarnet.PENDIENTE, verbose_name="Estado del carnet")
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
     
-#AQUI EMPIEZA LOS DOCUMENTOS ADJUNTOS
+#AQUI EMPIEZA LA DOCUMENTACION
 class Documentacion(models.Model):
     documentoAcudiente=models.FileField(upload_to='uploads/',blank=True, null=True)
     registroCivil=models.FileField(upload_to='uploads/',blank=True, null=True)

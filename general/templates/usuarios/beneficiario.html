@@ -1,0 +1,53 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+    <table>
+        <thead>
+            <th>Documento</th>
+            <th>Tipo de documento</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Extranjero</th>
+            <th>Tipo de sangre</th>
+            <th>Genero</th>
+            <th>Fecha de nacimiento</th>
+            <th>Lugar de nacimiento</th>
+            <th>Localidad</th>
+            <th>Barrio</th>
+            <th>Direccion</th>
+            <th>Telefono secundario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            
+            {% for beneficiario in beneficiario %}
+                <tr>
+                    <td>{{beneficiario.documento}}</td>
+                    <td>{{beneficiario.tipo de documento}}</td>
+                    <td>{{beneficiario.nombres}}</td>
+                    <td>{{beneficiario.apellidos}}</td>
+                    <td>{{beneficiario.extranjero}}</td>
+                    <td>{{beneficiario.tipo de sangre}}</td>
+                    <td>{{beneficiario.genero}}</td>
+                    <td>{{beneficiario.fecha de nacimiento}}</td>
+                    <td>{{beneficiario.lugar de nacimiento}}</td>
+                    <td>{{beneficiario.localidad}}</td>
+                    <td>{{beneficiario.barrio}}</td>
+                    <td>{{beneficiario.direccion}}</td>
+                    <td>{{beneficiario.telefono}}</td>
+                    <td>{{beneficiario.telefono secundario}}</td>
+                    <td>{{beneficiario.estado}}</td>
+                    <td>{{beneficiario.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock contenido %}
+    

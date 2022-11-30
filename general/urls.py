@@ -28,7 +28,6 @@ urlpatterns = [
     path('usuarios/',include("usuarios.urls")),  
     path('datos/',include("datos.urls")),  
 
-
 ]
 
 urlpatterns += [

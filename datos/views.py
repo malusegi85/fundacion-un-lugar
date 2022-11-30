@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from datos.forms import CrecimientoForm,Socio_EconomicoForm
-from datos.models import Crecimiento,Socio_Economico
+from datos.models import Crecimiento,Socio_Economico,Programa
 from usuarios.models import Beneficiario
 # Create your views here.
 
@@ -63,4 +63,13 @@ def socio_economico_crear(request,pk):
         'form':form
     }
     return render(request, 'datos/crear.html',context)
+
+def programa(request):
+    titulo="Programas"
+    programas=Programa.objects.all()
+    context={
+        'titulo':titulo,
+        'programas':programas
+    }
+    return render(request, 'datos/programas.html',context)
 

@@ -1,0 +1,40 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+    <table>
+        <thead>
+            <th>Documento del acudiente</th>
+            <th>Registro civil</th>            
+            <th>Foto</th>
+            <th>Formato</th>
+            <th>Autorizacion</th>
+            <th>Tarjeta de identidad</th>
+            <th>Carnet</th>
+            <th>Factura</th>
+            <th>Beneficiario</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            
+            {% for documentacion in documentacion %}
+                <tr>
+                    <td>{{documentacion.documento del acudiente}}</td>
+                    <td>{{documentacion.registro civil}}</td>
+                    <td>{{documentacion.foto}}</td>
+                    <td>{{documentacion.formato}}</td>
+                    <td>{{documentacion.autorizacion}}</td>
+                    <td>{{documentacion.tarjeta de identidad}}</td>
+                    <td>{{documentacion.carnet}}</td>
+                    <td>{{documentacion.factura}}</td>
+                    <td>{{documentacion.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock contenido %}

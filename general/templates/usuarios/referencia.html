@@ -1,0 +1,43 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+    <table>
+        <thead>
+            <th>Documento</th>
+            <th>Tipo de documento</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Ocupacion</th>
+            <th>Relacion</th>                      
+            <th>Telefono</th>
+            <th>Tipo de referencia</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            
+            {% for referencia in referencia %}
+                <tr>
+                    <td>{{referencia.documento}}</td>
+                    <td>{{referencia.tipo de documento}}</td>
+                    <td>{{referencia.nombres}}</td>
+                    <td>{{referencia.apellidos}}</td>
+                    <td>{{referencia.ocupacion}}</td>
+                    <td>{{referencia.relacion}}</td>
+                    <td>{{referencia.telefono}}</td>
+                    <td>{{referencia.tipo de referencia}}</td>                                                       
+                    <td>{{referencia.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock contenido %}
+    
+
+    

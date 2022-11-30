@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from usuarios.models import Beneficiario,Acudiente,Referencia,Padrino
+from usuarios.models import Beneficiario,Acudiente,Padrino,Referencia
 
 # Register your models here.
 admin.site.register(Beneficiario)

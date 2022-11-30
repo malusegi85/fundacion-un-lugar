@@ -6,29 +6,41 @@
 <h1>{{titulo}}</h1>
     <table>
         <thead>
-            <th>Estatura</th>
-            <th>Peso</th>
-            <th>Enfermedad</th>
-            <th>Discapacidad</th>
-            <th>EPS</th>
-            <th>Talla de Camisa</th>
-            <th>Talla de Pantalos</th>
-            <th>Talla de Calzado</th>
+            <th>Oficio</th>
+            <th>Colegio</th>
+            <th>Grado</th>
+            <th>Ingresos mensuales del nucleo familiar</th>
+            <th>Categoria del sisben</th>
+            <th>Estrato</th>
+            <th>Vivienda propia</th>
+            <th>Servicio de luz</th>
+            <th>Servicio de agua</th>
+            <th>Servicio de gas</th>
+            <th>Servicio de internet</th>
             <th>Beneficiario</th>
+            <th>Estado</th>
             <th>Acciones</th>
         </thead>
         <tbody>
             
-            {% for crecimiento in crecimientos %}
+            {% for socio_economico in socio_economico %}
                 <tr>
-                    <td>{{crecimiento.estatura}}</td>
-                    <td>{{crecimiento.peso}}</td>
-                    <td>{{crecimiento.enfermedad}}</td>
-                    <td>{{crecimiento.discapacidad}}</td>
-                    <td>{{crecimiento.eps}}</td>
-                    <td>{{crecimiento.tallaCamisa}}</td>
-                    <td>{{crecimiento.tallaPantalon}}</td>
-                    <td>{{crecimiento.tallaCalzado}}</td>
+                    <td>{{socio_economico.oficio}}</td>
+                    <td>{{socio_economico.colegio}}</td>
+                    <td>{{socio_economico.estatura}}</td>
+                    <td>{{socio_economico.grado}}</td>
+                    <td>{{socio_economico.ingresos}}</td>
+                    <td>{{socio_economico.sisben}}</td>
+                    <td>{{socio_economico.estrato}}</td>
+                    <td>{{socio_economico.vivienda propia}}</td>
+                    <td>{{socio_economico.servicio de luz}}</td>
+                    <td>{{socio_economico.servicio de agua}}</td>
+                    <td>{{socio_economico.servicio de gas}}</td>
+                    <td>{{socio_economico.servicio de internet}}</td>
+                    <td>{{socio_economico.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                   
                     <td>{{crecimiento.beneficiario.documento}}</td>
                     <td>acciones</td>
 

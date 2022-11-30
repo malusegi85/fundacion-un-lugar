@@ -1,0 +1,41 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<h1>{{titulo}}</h1>
+    <table>
+        <thead>
+            <th>Documento</th>
+            <th>Tipo de documento</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Parentesco</th>
+            <th>Ocupacion</th>
+            <th>Telefono</th>            
+            <th>Estado</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            
+            {% for beneficiario in beneficiario %}
+                <tr>
+                    <td>{{acudiente.documento}}</td>
+                    <td>{{acudiente.tipo de documento}}</td>
+                    <td>{{acudiente.nombres}}</td>
+                    <td>{{acudiente.apellidos}}</td>
+                    <td>{{acudiente.parentesco}}</td>
+                    <td>{{acudiente.ocupacion}}</td>
+                    <td>{{acudiente.telefono}}</td>                    
+                    <td>{{acudiente.beneficiario.documento}}</td>
+                    <td>acciones</td>
+
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock contenido %}
+    
+
+    
