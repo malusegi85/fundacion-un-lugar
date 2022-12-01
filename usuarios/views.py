@@ -6,4 +6,10 @@ def usuarios(request):
     context={
 
     }
-    return render(request, "usuarios/usuarios.html",context)
+    return render(request, "usuarios/beneficiario.html",context)
+
+def usuarios(request):
+    context={
+
+    }
+    return render(request, "usuarios/acudiente.html",context)
