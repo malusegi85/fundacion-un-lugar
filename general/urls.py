@@ -20,10 +20,11 @@ from django.urls import path, include, re_path
 from general.views import inicio, contenido, pagina404, pagina500, reload, ayuda, politica
 from general import settings
 from django.views.static import serve
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio , name="inicio"),
+    #path('', inicio , name="inicio"),
     path('contenido', contenido , name="contenido"),
     path('pagina404', pagina404 , name="pagina404"),
     path('pagina500', pagina500 , name="pagina500"),
@@ -31,8 +32,13 @@ urlpatterns = [
     path('reload', reload , name="reload"),
     path('politica', politica , name="politica"),
     path('usuarios/',include("usuarios.urls")),  
-    path('datos/',include("datos.urls")),  
-
+    path('datos/',include("datos.urls")), 
+    path('',auth_views.LoginView.as_view(),name='inicio'), 
+    path('reiniciar/contraseña/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('reiniciar/contraseña/enviar/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reiniciar/contraseña/confirmar/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reiniciar/contraseña/completo/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += [

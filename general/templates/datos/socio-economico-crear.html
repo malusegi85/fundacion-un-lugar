@@ -1,0 +1,18 @@
+{% extends 'partials/body.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+    <h1 class="text-center fs-4" style="color: #008;">Crear - Socio-economico</h1>
+<div style="background-color: aliceblue;" class="container d-flex justify-content-center">
+<form action="" method="POST" class="rounded w-50 m-lg-4">
+    {% csrf_token %}
+    {{form|crispy}}  
+      
+    <input class="btn btn-outline-success" type="submit" value="Registrar Socio-economico">
+    <a class="btn btn-outline-info mx-2" href="{% url 'socio-economico' %}">Socio-economicos Registrados</a>
+</form>
+</div>
+
+{% endblock contenido %}
+    

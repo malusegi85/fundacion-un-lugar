@@ -1,75 +1,77 @@
 from django.shortcuts import render,redirect
-from datos.forms import CrecimientoForm,Socio_EconomicoForm
-from datos.models import Crecimiento,Socio_Economico,Programa
+from datos.forms import CrecimientoForm,Socio_EconomicoForm,DocumentacionForm
+from datos.models import Crecimiento,Socio_Economico,Programa,Documentacion
 from usuarios.models import Beneficiario
 # Create your views here.
 
 
 def crecimiento(request):
-    titulo="Crecimientos"
     crecimientos=Crecimiento.objects.all()
     context={
-        'titulo':titulo,
         'crecimientos':crecimientos
     }
-    return render(request, 'datos/crecimiento.html')
+    return render(request, "datos/crecimiento.html", context)
     
-def crecimiento_crear(request,pk):
-    beneficiario= Beneficiario.objects.get(id=pk)
-    titulo=f"Crecimiento de {beneficiario.nombres} {beneficiario.apellidos}"
-    if request.method=='POST':
-        form= CrecimientoForm(reques.POST)
+def crecimientos(request):
+    if request.method == 'POST':
+        form=CrecimientoForm(request.POST)
         if form.is_valid():
-            aux=form.save(commit=false)
-            aux.beneficiario=beneficiario
-            aux.save()
-            return redirect('crecimientos')
+            form.save()
         else:
-            form= CrecimientoForm(request.POST)
+            print("el crecimiento no se guardo")
     else:
-            form= CrecimientoForm()
+        form=CrecimientoForm()
     context={
-        'titulo':titulo,
         'form':form
     }
-    return render(request, 'datos/crear.html',context)
+    return render(request, "datos/crecimiento-crear.html", context)
 
-    
 def socio_economico(request):
-    titulo="Datos socio-economicos"
     socio_economicos=Socio_Economico.objects.all()
     context={
-        'titulo':titulo,
         'socio_economicos':socio_economicos
     }
-    return render(request, 'datos/socio_economicos.html')
+    return render(request, 'datos/socio-economico.html', context)
     
-def socio_economico_crear(request,pk):
-    beneficiario= Beneficiario.objects.get(id=pk)
-    titulo=f"Datos Socio-economicos de {beneficiario.nombres} {beneficiario.apellidos}"
+def socio_economicos(request):    
     if request.method=='POST':
-        form= Socio_EconomicoForm(reques.POST)
+        form=Socio_EconomicoForm(request.POST)
         if form.is_valid():
-            aux=form.save(commit=false)
-            aux.beneficiario=beneficiario
-            aux.save()
-            return redirect('socio-economicos')
+            form.save()           
         else:
-            form= Socio_EconomicoForm(request.POST)
+            print("el socio_economico no se guardo")
     else:
-            form= Socio_EconomicoForm()
-    context={
-        'titulo':titulo,
+        form= Socio_EconomicoForm()
+    context={        
         'form':form
     }
-    return render(request, 'datos/crear.html',context)
+    return render(request, 'datos/socio-economico-crear.html', context)
 
 def programa(request):
-    titulo="Programas"
     programas=Programa.objects.all()
-    context={
-        'titulo':titulo,
+    context={        
         'programas':programas
     }
     return render(request, 'datos/programas.html',context)
+
+def documentacion(request):
+    documentacions=Documentacion.objects.all()
+    context={
+        'documentacions':documentacions
+    }
+    return render(request, "datos/documentacion.html", context)
+
+def documentacions(request):
+    if request.method == 'POST':
+        form=DocumentacionForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            print("el documento no se guardo")
+    else:
+        form=DocumentacionForm()
+    context={
+        'form':form
+    }
+    return render(request, "datos/documentacion-crear.html", context)
 

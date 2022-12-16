@@ -3,16 +3,15 @@
 
 
 {% block contenido %}
-    <h1 class="text-center fs-4" style="color: #008;">Crear - Crecimiento</h1>
+    <h1 class="text-center fs-4" style="color: #008;">Crear - Referencia</h1>
 <div style="background-color: aliceblue;" class="container d-flex justify-content-center">
 <form action="" method="POST" class="rounded w-50">
     {% csrf_token %}
     {{form|crispy}}  
       
-    <input class="btn btn-outline-success" type="submit" value="Registrar Crecimiento">
-    <a class="btn btn-outline-info mx-2" href="{% url 'crecimiento' %}">Crecimientos Registrados</a>
+    <input class="btn btn-outline-success" type="submit" value="Registrar Referencia">
+    <a class="btn btn-outline-info mx-2" href="{% url 'referencia' %}">Referencias Registradas</a>
 </form>
 </div>
 
 {% endblock contenido %}
-    

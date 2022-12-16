@@ -1,5 +1,5 @@
 from django.forms import ModelForm, widgets
-from usuarios.models import Beneficiario,Padrino_Beneficiario,Acudiente,Padrino,Referencia
+from usuarios.models import Beneficiario,Acudiente,Padrino_Beneficiario,Padrino,Referencia
 from django.utils.translation import gettext_lazy as _
 
 class BeneficiarioForm(ModelForm):
@@ -25,6 +25,7 @@ class Padrino_BeneficiarioForm(ModelForm):
     class Meta:
         model=Padrino_Beneficiario
         exclude=['padrino','estado']
+        
 class ReferenciaForm(ModelForm):
     class Meta:
         model=Referencia

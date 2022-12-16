@@ -39,7 +39,7 @@
                 {if (i<10) {i="0" + i;}return i;}
                 window.onload=function(){startTime();}
                 </script>
-                <div id="reloj" style="font-size:40px; background-color: rgb(167, 213, 237);"></div> 
+                <div id="reloj" style="font-size:50px; background-color: rgb(200, 228, 249);"></div> 
                 
                 <!--Fecha calendario-->
 
@@ -74,20 +74,23 @@
     <!--Graficas-->
     <div class="row">
     <div class="col-md-4 p-3 mx-auto m-4" style="background-color: rgb(253, 253, 255)">
-        <h2 style="color: rgb(10, 10, 179)">No. Usuarios por año</h2>
+        <h2 class="m-lg-4" style="color: rgb(10, 10, 179)">No. usuarios por año</h2>
         <hr>
 
         <div id="myfirstchart"></div>
     </div>          
            
      <div class="col-md-4 p-3 mx-auto m-4" style="background-color: rgb(253, 253, 255)">
-        <h2 style="color: rgb(10, 10, 179)">Nuestros Programas</h2>
+        <h2 class="m-lg-4" style="color: rgb(10, 10, 179)">Nuestros Programas</h2>
         <hr>
-
-        <div id="graficoanillos"></div>
+      <div id="graficoanillos"></div>
     </div>
-    
-
+  </div>
+  <div class="text-center text-center">
+    <h2 style="color: #008" class="m-5 fs-3">"Historia de nuestra fundación, ¿Cómo comenzamos y por qué nacimos?"</h2>
+    <p style="color: #008" class="m-lg-5 fs-5">En el año 2011 abrimos por primera vez como comedor comunitario. Nuestro objetivo era brindar alimentación a los niños de bajos recursos que al llegar de su jornada escolar no contaban con esta garantía mínima en su hogar. 
+      Gracias a las donaciones, apadrinamientos y a los voluntarios que se han unido con los años, hemos crecido y aprendido muchísimo. Creemos que el cambio de la sociedad se puede lograr por medio de las nuevas generaciones con mentes, espíritus, y sueños que como 
+      Fundación queremos apoyar. Actualmente con 11 años de operación, no paramos de soñar.</p>
    </div>                
    
 <main>
@@ -104,7 +107,7 @@
               </div>
 
               <div class="carousel-item">
-                <img src="{% static 'img/vision.jpg' %}" class="d-block w-70 m-3 p-lg-5 mx-auto" alt="...">
+                <img src="{% static 'img/visionfunda.JPG' %}" class="d-block w-70 m-3 p-lg-5 mx-auto" alt="...">
               </div>
             </div>
           </div>

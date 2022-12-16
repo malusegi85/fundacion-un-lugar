@@ -1,19 +1,19 @@
 from django.urls import path
 
-from datos.views import crecimiento,crecimiento_crear,socio_economico,socio_economico_crear,programa
+from datos.views import crecimiento, crecimientos, socio_economico, socio_economicos, documentacion, documentacions
 from usuarios.views import usuarios
 
 
 
 urlpatterns = [
-    path('crecimiento/<int:pk>/',crecimiento_crear,name="crecimientos-c"),
-    path('crecimientos/',crecimiento,name="crecimientos"),
-
-    path('socio-economico/<int:pk>/',socio_economico_crear,name="socio-economicos-c"),
-    path('socio-economicos/',socio_economico,name="socio-economicos"),
-
-    path('programa/',programa,name="programa"),
-    # path('programa-beneficiario/<int:pk>/',programa_beneficiarios,name="programa-beneficiarios"),
-    # path('documentacion/<int:pk>/',documentacion,name="documentacion"),
+    path('crecimiento/',crecimiento,name="crecimiento"),
+    path('crecimiento-crear/',crecimientos,name="crecimiento-crear"),
+    path('socio-economico/',socio_economico,name="socio-economico"),
+    path('socio-economico-crear/',socio_economicos,name="socio-economico-crear"),    
+    path('documentacion/',documentacion,name="documentacion"),
+    path('documentacion-crear/',documentacions,name="documentacion-crear"),
+    #path('programa/',programa,name="programa"),
+    #path('programa-beneficiario/<int:pk>/',programa_beneficiarios,name="programa-beneficiarios"),
+    
     
 ]

@@ -3,47 +3,46 @@
 
 
 {% block contenido %}
-<h1>{{titulo}}</h1>
-    <table>
+<h1 class="text-center fs-4" style="color: #008;">Beneficiarios</h1>
+<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'beneficiario-crear' %}">Crear Beneficiario</a>
+    <table class="table" style="background-color: aliceblue; margin: 15px;">
         <thead>
-            <th>Documento</th>
-            <th>Tipo de documento</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Extranjero</th>
-            <th>Tipo de sangre</th>
-            <th>Genero</th>
-            <th>Fecha de nacimiento</th>
-            <th>Lugar de nacimiento</th>
-            <th>Localidad</th>
-            <th>Barrio</th>
-            <th>Direccion</th>
-            <th>Telefono secundario</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <tr style="color: #008;">
+                <th>Documento</th>
+                <th>Tipo de documento</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th></th>
+                <th>Tipo de sangre</th>
+                <th>Genero</th>
+                <th>Fecha de nacimiento</th>
+                <th>Lugar de nacimiento</th>
+                <th>Localidad</th>
+                <th>Barrio</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Teléfono secundario</th>                              
+            </tr>
         </thead>
         <tbody>
             
-            {% for beneficiario in beneficiario %}
+            {% for beneficiario in beneficiarios %}
                 <tr>
-                    <td>{{beneficiario.documento}}</td>
-                    <td>{{beneficiario.tipo de documento}}</td>
+                    <td>{{beneficiario.documento}}</td> 
+                    <td>{{beneficiario.tipoDocumento}}</td>                   
                     <td>{{beneficiario.nombres}}</td>
                     <td>{{beneficiario.apellidos}}</td>
                     <td>{{beneficiario.extranjero}}</td>
-                    <td>{{beneficiario.tipo de sangre}}</td>
+                    <td>{{beneficiario.tipoSangre}}</td>
                     <td>{{beneficiario.genero}}</td>
-                    <td>{{beneficiario.fecha de nacimiento}}</td>
-                    <td>{{beneficiario.lugar de nacimiento}}</td>
+                    <td>{{beneficiario.fechaNacimiento}}</td>
+                    <td>{{beneficiario.lugarNacimiento}}</td>
                     <td>{{beneficiario.localidad}}</td>
                     <td>{{beneficiario.barrio}}</td>
                     <td>{{beneficiario.direccion}}</td>
                     <td>{{beneficiario.telefono}}</td>
-                    <td>{{beneficiario.telefono secundario}}</td>
-                    <td>{{beneficiario.estado}}</td>
+                    <td>{{beneficiario.telefonoSecundario}}</td>                    
                     <td>{{beneficiario.beneficiario.documento}}</td>
-                    <td>acciones</td>
-
                 </tr>
             {% endfor %}
                 

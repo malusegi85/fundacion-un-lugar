@@ -3,31 +3,32 @@
 
 
 {% block contenido %}
-<h1>{{titulo}}</h1>
-    <table>
+<h1 class="text-center fs-4" style="color: #008;">Padrinos - Beneficiarios</h1>
+<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'padrino-crear' %}">Crear Padrino</a>
+    <table class="table" style="background-color: aliceblue; margin: 15px;">
         <thead>
-            <th>Documento</th>
-            <th>Tipo de documento</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Telefono</th>
-            <th>Correo</th>                      
-            <th>Estado</th>
-            <th>Acciones</th>
+            <tr style="color: #008;"> 
+                <th>Documento</th>
+                <th>Tipo de documento</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Beneficiario</th>           
+            </tr>
+           
         </thead>
         <tbody>
             
-            {% for padrino in padrino %}
+            {% for padrino in padrinos %}
                 <tr>
                     <td>{{padrino.documento}}</td>
-                    <td>{{padrino.tipo de documento}}</td>
+                    <td>{{padrino.tipoDocumento}}</td>
                     <td>{{padrino.nombres}}</td>
                     <td>{{padrino.apellidos}}</td>
                     <td>{{padrino.telefono}}</td>
-                    <td>{{padrino.correo}}</td>
-                    <td>{{padrino.estado}}</td>                                      
-                    <td>{{padrino.beneficiario.documento}}</td>
-                    <td>acciones</td>
+                    <td>{{padrino.correo}}</td>                                                       
+                    <td>{{padrino.beneficiario.documento}}</td>          
 
                 </tr>
             {% endfor %}

@@ -1,9 +1,9 @@
 <!-- Aqui empieza el header-->
 {% load static %}
 <header>
-    <nav class="navbar navbar-expand-lg bg-white">
+    <nav class="navbar navbar-expand-lg" style="background-color: aliceblue;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="https://fundacionunlugar.com/"><img src="{% static 'img\logo.jpg' %}" alt=""></a>
+            <a class="navbar-brand m-lg-3" href="https://fundacionunlugar.com/"><img src="{% static 'img\logo.jpg' %}" alt=""></a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -15,26 +15,51 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-info mx-2" aria-current="page" href="{% url 'contenido' %}">Inicio</a>
                     </li>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          Usuarios
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <li><a class="dropdown-item" href="{% url 'beneficiario-crear' %}">Crear Beneficiarios</a></li>
+                          <li><a class="dropdown-item" href="{% url 'beneficiario' %}">Beneficiarios registrados</a></li>
+                          <li><a class="dropdown-item" href="{% url 'acudiente-crear' %}">Crear Acudientes</a></li>
+                          <li><a class="dropdown-item" href="{% url 'acudiente' %}">Acudientes registrados</a></li>
+                          <li><a class="dropdown-item" href="{% url 'padrino-crear' %}">Crear Padrinos</a></li>
+                          <li><a class="dropdown-item" href="{% url 'padrino' %}">Padrinos registrados</a></li>
+                          <li><a class="dropdown-item" href="{% url 'referencia-crear' %}">Crear Referencias</a></li>
+                          <li><a class="dropdown-item" href="{% url 'referencia' %}">Referencias registradas</a></li>                        
+                        </ul>
+                      </div>                   
+                      <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          Datos
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">                          
+                          <li><a class="dropdown-item" href="{% url 'crecimiento-crear' %}">Crear Crecimiento</a></li>
+                          <li><a class="dropdown-item" href="{% url 'crecimiento' %}">Crecimientos registrados</a></li>
+                          <li><a class="dropdown-item" href="{% url 'socio-economico-crear' %}">Crear Socio-economico</a></li>
+                          <li><a class="dropdown-item" href="{% url 'socio-economico' %}">Socio-economicos registrados</a></li>
+                          <li><a class="dropdown-item" href="{% url 'documentacion-crear' %}">Crear documentación</a></li>
+                          <li><a class="dropdown-item" href="{% url 'documentacion' %}">Documentación registrada</a></li>
+         
+                        </ul>
+                      </div>                                                          
+                                          
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success mx-2" aria-current="page" href="#">Datos</a>
+                        <a class="nav-link btn btn-outline-danger mx-2" aria-current="page" href="{% url 'pagina404' %}">404</a>                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="#">Usuarios</a>                        
+                        <a class="nav-link btn btn-outline-secondary mx-2" aria-current="page" href="{% url 'pagina500' %}">500</a>                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="{% url 'pagina404' %}">404</a>                        
+                        <a class="nav-link btn btn-outline-danger mx-2" aria-current="page" href="{% url 'ayuda' %}">Ayuda</a>                        
+                    </li> 
+                    
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-info mx-2" aria-current="page" href="{% url 'politica' %}">Políticas de seguridad</a>                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="{% url 'pagina500' %}">500</a>                        
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="{% url 'ayuda' %}">Ayuda</a>                        
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="{% url 'politica' %}">Politicas Seguridad</a>                        
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary mx-2" aria-current="page" href="{% url 'reload' %}">Sistema</a>                        
+                        <a class="nav-link btn btn-outline-secondary mx-2" aria-current="page" href="{% url 'reload' %}">Sistema</a>                        
                     </li>
 
                      <!-- Boton modal -->

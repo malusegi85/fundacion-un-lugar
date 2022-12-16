@@ -10,8 +10,8 @@ class Crecimiento(models.Model):
     enfermedad= models.CharField(max_length=50, verbose_name="Enfermedad")
     discapacidad= models.CharField(max_length=50, verbose_name="Discapacidad")
     eps= models.CharField(max_length=50, verbose_name="EPS")   
-    tallaCamisa= models.CharField(max_length=50, verbose_name="Talla camisa")
-    tallaPantalon= models.CharField(max_length=50, verbose_name="Talla pantalon ")
+    tallaCamisa= models.CharField(max_length=50, verbose_name="Talla de camisa")
+    tallaPantalon= models.CharField(max_length=50, verbose_name="Talla de pantalón ")
     tallaCalzado= models.CharField(max_length=50, verbose_name="Talla de calzado")
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
 
@@ -21,9 +21,8 @@ class Socio_Economico(models.Model):
     colegio= models.CharField(max_length=50, verbose_name="Colegio")
     grado= models.CharField(max_length=50, verbose_name="Grado")
     ingresos= models.CharField(max_length=50, verbose_name="Ingresos mensuales del nucleo familiar")
-    sisben= models.CharField(max_length=50, verbose_name="Categoria sisben")
+    sisben= models.CharField(max_length=50, verbose_name="Categoria del sisben")
     estrato= models.CharField(max_length=50, verbose_name="Estrato")
-
     viviendaPropia=models.BooleanField(default=False,verbose_name="Tiene Vivienda Propia?")
     servicioLuz=models.BooleanField(default=False,verbose_name="Tiene Servicio de Luz?")
     servicioAgua=models.BooleanField(default=False,verbose_name="Tiene Servicio de Agua?")
@@ -32,7 +31,7 @@ class Socio_Economico(models.Model):
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
     estado= models.BooleanField(default=False,verbose_name="Estado")
     
-#AQUI EMPIEZA LOS PROGRAMAS Y ESTADOS DEL BENEFICIARIO
+#ESTOS MODEL PROGRAMA Y PROGRAMAS BENEFICIARIO SE DEBEN ELIMINAR 
 class Programa(models.Model):
     nombre= models.CharField(max_length=50, verbose_name="Nombre")
     descripcion= models.CharField(max_length=50, verbose_name="Descripción")
@@ -53,7 +52,7 @@ class Programas_Beneficiario(models.Model):
         INHABILITADO='Inhabilitado', _("Inhabilitado")
     estadoCarnet=models.CharField(max_length=20, choices=EstadoCarnet.choices, default=EstadoCarnet.PENDIENTE, verbose_name="Estado del carnet")
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
-    
+
 #AQUI EMPIEZA LA DOCUMENTACION
 class Documentacion(models.Model):
     documentoAcudiente=models.FileField(upload_to='uploads/',blank=True, null=True)

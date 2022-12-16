@@ -3,7 +3,15 @@
 
 
 {% block contenido %}
-    <form action="" method="POST">
-        {{form|crispy}}
-    </form>
+    <h1 class="text-center fs-4" style="color: #008;">Crear - Beneficiario</h1>
+<div style="background-color: aliceblue;" class="container d-flex justify-content-center">
+<form action="" method="POST" class="rounded w-50">
+    {% csrf_token %}
+    {{form|crispy}}  
+      
+    <input class="btn btn-outline-success" type="submit" value="Registrar Beneficiario">
+    <a class="btn btn-outline-info mx-2" href="{% url 'beneficiario' %}">Beneficiarios Registrados</a>
+</form>
+</div>
+
 {% endblock contenido %}

@@ -3,33 +3,35 @@
 
 
 {% block contenido %}
-<h1>{{titulo}}</h1>
-    <table>
+<h1 class="text-center fs-4" style="color: #008;">Acudientes - Beneficiarios</h1>
+<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'acudiente-crear' %}">Crear Acudiente</a>
+    <table class="table" style="background-color: aliceblue; margin: 15px;">
         <thead>
-            <th>Documento</th>
-            <th>Tipo de documento</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Parentesco</th>
-            <th>Ocupacion</th>
-            <th>Telefono</th>            
-            <th>Estado</th>
-            <th>Acciones</th>
+            <tr style="color: #008;">
+                <th>Número de Documento</th>
+                <th>Tipo de documento</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>                
+                <th>Parentesco</th>
+                <th>Ocupación</th>
+                <th>Teléfono</th>                
+                <th>Beneficiario</th>             
+            </tr>
+            
         </thead>
         <tbody>
             
-            {% for beneficiario in beneficiario %}
+            {% for acudiente in acudientes %}
                 <tr>
                     <td>{{acudiente.documento}}</td>
-                    <td>{{acudiente.tipo de documento}}</td>
+                    <td>{{acudiente.tipoDocumento}}</td>
                     <td>{{acudiente.nombres}}</td>
-                    <td>{{acudiente.apellidos}}</td>
+                    <td>{{acudiente.apellidos}}</td>                    
                     <td>{{acudiente.parentesco}}</td>
                     <td>{{acudiente.ocupacion}}</td>
-                    <td>{{acudiente.telefono}}</td>                    
+                    <td>{{acudiente.telefono}}</td>                                       
                     <td>{{acudiente.beneficiario.documento}}</td>
-                    <td>acciones</td>
-
+                    
                 </tr>
             {% endfor %}
                 

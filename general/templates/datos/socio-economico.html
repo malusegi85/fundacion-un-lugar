@@ -3,27 +3,28 @@
 
 
 {% block contenido %}
-<h1>{{titulo}}</h1>
-    <table>
+<h1 class="text-center fs-4" style="color: #008;">Socio_economicos</h1>
+<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'socio-economico-crear' %}">Crear socio_economico</a>
+    <table class="table" style="background-color: aliceblue; margin: 15px;">
         <thead>
-            <th>Oficio</th>
-            <th>Colegio</th>
-            <th>Grado</th>
-            <th>Ingresos mensuales del nucleo familiar</th>
-            <th>Categoria del sisben</th>
-            <th>Estrato</th>
-            <th>Vivienda propia</th>
-            <th>Servicio de luz</th>
-            <th>Servicio de agua</th>
-            <th>Servicio de gas</th>
-            <th>Servicio de internet</th>
-            <th>Beneficiario</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <tr  style="color: #008;">
+                <th>A que se dedica el beneficiario?</th>
+                <th>Colegio</th>
+                <th>Grado</th>
+                <th>Ingresos mensuales del nucleo familiar</th>
+                <th>Categoria del sisben</th>
+                <th>Estrato</th>
+                <th>Vivienda propia</th>
+                <th>Servicio de luz</th>
+                <th>Servicio de agua</th>
+                <th>Servicio de gas</th>
+                <th>Servicio de internet</th>
+                <th></th>
+            </tr>                      
         </thead>
         <tbody>
             
-            {% for socio_economico in socio_economico %}
+            {% for socio_economico in socio_economicos %}
                 <tr>
                     <td>{{socio_economico.oficio}}</td>
                     <td>{{socio_economico.colegio}}</td>
@@ -32,17 +33,12 @@
                     <td>{{socio_economico.ingresos}}</td>
                     <td>{{socio_economico.sisben}}</td>
                     <td>{{socio_economico.estrato}}</td>
-                    <td>{{socio_economico.vivienda propia}}</td>
-                    <td>{{socio_economico.servicio de luz}}</td>
-                    <td>{{socio_economico.servicio de agua}}</td>
-                    <td>{{socio_economico.servicio de gas}}</td>
-                    <td>{{socio_economico.servicio de internet}}</td>
-                    <td>{{socio_economico.beneficiario.documento}}</td>
-                    <td>acciones</td>
-
-                   
-                    <td>{{crecimiento.beneficiario.documento}}</td>
-                    <td>acciones</td>
+                    <td>{{socio_economico.viviendaPropia}}</td>
+                    <td>{{socio_economico.servicioLuz}}</td>
+                    <td>{{socio_economico.servicioAgua}}</td>
+                    <td>{{socio_economico.servicioGas}}</td>
+                    <td>{{socio_economico.servicioInternet}}</td>
+                    <td>{{socio_economico.beneficiario.documento}}</td>                       
 
                 </tr>
             {% endfor %}

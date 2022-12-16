@@ -14,7 +14,7 @@ class Beneficiario(models.Model):
     tipoDocumento=models.CharField(max_length=5, choices=TipoDocumento.choices, default=TipoDocumento.TI, verbose_name="Tipo de Documento")    
     nombres= models.CharField(max_length=50, verbose_name="Nombres")
     apellidos= models.CharField(max_length=50, verbose_name="Apellidos")
-    extranjero= models.BooleanField(default=False,verbose_name="Es extranjero?")
+    #extranjero= models.BooleanField(default=False,verbose_name="Es extranjero?")
     class TipoSangre(models.TextChoices):
         AP='A+', _("A+")    
         AN='A-', _("A-")
@@ -24,20 +24,19 @@ class Beneficiario(models.Model):
         ABN='AB-', _("AB-")
         OP='O+', _("O+")
         ON='O-', _("O-")
-    tipoSangre=models.CharField(max_length=5, choices=TipoSangre.choices, verbose_name="Tipo de Documento") 
+    tipoSangre=models.CharField(max_length=5, choices=TipoSangre.choices, verbose_name="Tipo de sangre") 
     class Genero(models.TextChoices):
         MASCULINO='Masculino', _("Masculino")
         FEMENINO='Femenino', _("Femenino")
     genero=models.CharField(max_length=15, choices=Genero.choices, verbose_name="Género")   
     fechaNacimiento=models.DateField(verbose_name="Fecha de nacimiento", help_text="DD/MM/AA")
     lugarNacimiento= models.CharField(max_length=50, verbose_name="Lugar de Nacimiento")
-
     localidad= models.CharField(max_length=50, verbose_name="Localidad")
     barrio= models.CharField(max_length=50, verbose_name="Barrio")
     direccion= models.CharField(max_length=50, verbose_name="Dirección")
     telefono= models.CharField(max_length=50, verbose_name="Teléfono")
     telefonoSecundario= models.CharField(max_length=50,blank=True,null=True, verbose_name="Teléfono secundario")   
-    estado= models.BooleanField(default=False,verbose_name="Estado")
+    #estado= models.BooleanField(default=False,verbose_name="Estado")
     
 #AQUI EMPIEZA LOS DATOS DEL ACUDIENTE DEL BENEFICIARIO
 class Acudiente(models.Model):
@@ -68,8 +67,12 @@ class Padrino(models.Model):
     nombres= models.CharField(max_length=50, verbose_name="Nombres")
     apellidos= models.CharField(max_length=50, verbose_name="Apellidos")
     telefono= models.CharField(max_length=50, verbose_name="Teléfono")
-    correo= models.EmailField(max_length=50, verbose_name="Correo electrónico") 
+    correo= models.EmailField(max_length=50, verbose_name="Correo electrónico")         
     estado= models.BooleanField(default=False,verbose_name="Estado")
+    #beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
+
+#SE DEBE ELIMINAR ESTA CLASE DE PADRINO BENEFICIARIO NO SE NECESITA Y LOS CAMPOS ESTADOS DE LOS DEMAS MODELOS
+
 class Padrino_Beneficiario(models.Model):
     beneficiario= models.ForeignKey(Beneficiario, on_delete=models.CASCADE, verbose_name="Beneficiario")
     padrino= models.ForeignKey(Padrino, on_delete=models.CASCADE, verbose_name="Padrino")

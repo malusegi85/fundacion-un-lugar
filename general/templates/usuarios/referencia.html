@@ -3,35 +3,35 @@
 
 
 {% block contenido %}
-<h1>{{titulo}}</h1>
-    <table>
+<h1 class="text-center fs-4" style="color: #008;">Referencias - Beneficiarios</h1>
+<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'referencia-crear' %}">Crear Referencia</a>
+    <table class="table" style="background-color: aliceblue; margin: 15px;">
         <thead>
-            <th>Documento</th>
+            <tr style="color: #008;">
+            <th>Número de Documento</th>
             <th>Tipo de documento</th>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Ocupacion</th>
-            <th>Relacion</th>                      
-            <th>Telefono</th>
+            <th>Relación</th>                      
+            <th>Teléfono</th>
             <th>Tipo de referencia</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <th>Beneficiario</th>  
+            </tr>                      
         </thead>
         <tbody>
             
-            {% for referencia in referencia %}
+            {% for referencia in referencias %}
                 <tr>
                     <td>{{referencia.documento}}</td>
-                    <td>{{referencia.tipo de documento}}</td>
+                    <td>{{referencia.tipoDocumento}}</td>
                     <td>{{referencia.nombres}}</td>
                     <td>{{referencia.apellidos}}</td>
                     <td>{{referencia.ocupacion}}</td>
                     <td>{{referencia.relacion}}</td>
                     <td>{{referencia.telefono}}</td>
-                    <td>{{referencia.tipo de referencia}}</td>                                                       
+                    <td>{{referencia.tipoReferencia}}</td>                                                       
                     <td>{{referencia.beneficiario.documento}}</td>
-                    <td>acciones</td>
-
                 </tr>
             {% endfor %}
                 
