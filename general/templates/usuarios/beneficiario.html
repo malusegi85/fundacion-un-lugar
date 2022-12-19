@@ -1,52 +1,107 @@
 {% extends 'partials/body.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
+
+{% block stylesheet %}
+
+ 
+{% endblock stylesheet %}
 
 
 {% block contenido %}
-<h1 class="text-center fs-4" style="color: #008;">Beneficiarios</h1>
-<a style="margin: 20px;" class="btn btn-outline-success w-22" href="{% url 'beneficiario-crear' %}">Crear Beneficiario</a>
-    <table class="table" style="background-color: aliceblue; margin: 15px;">
-        <thead>
-            <tr style="color: #008;">
-                <th>Documento</th>
-                <th>Tipo de documento</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th></th>
-                <th>Tipo de sangre</th>
-                <th>Genero</th>
-                <th>Fecha de nacimiento</th>
-                <th>Lugar de nacimiento</th>
-                <th>Localidad</th>
-                <th>Barrio</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Teléfono secundario</th>                              
-            </tr>
-        </thead>
-        <tbody>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Beneficiarios</h3>
+    </div>
+
+    <div class="card-body">
+        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th>Tipo de documento</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for beneficiario in beneficiarios %}
+
+                            <tr class="odd">
+
+                                <td class="sorting_1 dtr-control" tabindex="0">{{beneficiario.documento}}</td>
+                                <td class="">{{beneficiario.tipoDocumento}}</td>
+                                <td><a href="" class="btn btn-succes fas fa-eye"></a></td>
+
+                            </tr>
+                            {% endfor %}
+
+                            <tr class="">
+                                <form action="" method='POST'>
+                                    {% csrf_token %}
+                                    <td class="sorting_1 dtr-control" tabindex="0">
+                                        <input type="text" name="documento" maxlength="90" required="" id="id_documento">
+                                    </td>
+                                    <td><select name="tipoDocumento" required="" id="id_tipoDocumento">
+                                        <option value="" selected="">Tipo de documento</option>
+                                      
+                                        
+                                        {% for acudiente in acudientes  %}
+                                        <option value="{{acudiente.id}}">{{acudiente.nombres}}</option> 
+                                        {% endfor %}
+                                            
+                                      
+                                      </select></td>
+                                    
+                                    <td><input class="btn btn-success" type="submit" value="Agregar"></td>
+                                </form>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             
-            {% for beneficiario in beneficiarios %}
-                <tr>
-                    <td>{{beneficiario.documento}}</td> 
-                    <td>{{beneficiario.tipoDocumento}}</td>                   
-                    <td>{{beneficiario.nombres}}</td>
-                    <td>{{beneficiario.apellidos}}</td>
-                    <td>{{beneficiario.extranjero}}</td>
-                    <td>{{beneficiario.tipoSangre}}</td>
-                    <td>{{beneficiario.genero}}</td>
-                    <td>{{beneficiario.fechaNacimiento}}</td>
-                    <td>{{beneficiario.lugarNacimiento}}</td>
-                    <td>{{beneficiario.localidad}}</td>
-                    <td>{{beneficiario.barrio}}</td>
-                    <td>{{beneficiario.direccion}}</td>
-                    <td>{{beneficiario.telefono}}</td>
-                    <td>{{beneficiario.telefonoSecundario}}</td>                    
-                    <td>{{beneficiario.beneficiario.documento}}</td>
-                </tr>
-            {% endfor %}
-                
-        </tbody>
-    </table>
+        </div>
+    </div>
+
+</div>
 {% endblock contenido %}
-    
+
+{% block javascript %}
+<!-- DataTables  & Plugins -->
+<script src="{% static 'datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+<script src="{% static 'datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'jszip/jszip.min.js' %}"></script>
+<script src="{% static 'pdfmake/pdfmake.min.js' %}"></script>
+<script src="{% static 'pdfmake/vfs_fonts.js' %}"></script>
+<script src="{% static 'datatables-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'datatables-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'datatables-buttons/js/buttons.colVis.min.js' %}"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+{% endblock javascript %}

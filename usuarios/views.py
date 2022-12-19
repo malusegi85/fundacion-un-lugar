@@ -16,6 +16,8 @@ def usuarios(request):
         form=BeneficiarioForm(request.POST)
         if form.is_valid():
             form.save()
+            print("El usuario se guardo correctamente")
+            return redirect('usuarios')
         else:
             print("el beneficiario no se guardo")
     else:

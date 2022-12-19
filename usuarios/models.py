@@ -14,7 +14,7 @@ class Beneficiario(models.Model):
     tipoDocumento=models.CharField(max_length=5, choices=TipoDocumento.choices, default=TipoDocumento.TI, verbose_name="Tipo de Documento")    
     nombres= models.CharField(max_length=50, verbose_name="Nombres")
     apellidos= models.CharField(max_length=50, verbose_name="Apellidos")
-    #extranjero= models.BooleanField(default=False,verbose_name="Es extranjero?")
+    extranjero= models.BooleanField(default=False,verbose_name="Es extranjero?")
     class TipoSangre(models.TextChoices):
         AP='A+', _("A+")    
         AN='A-', _("A-")

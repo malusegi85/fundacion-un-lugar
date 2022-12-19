@@ -1,7 +1,17 @@
 <!-- Aqui empieza el header-->
 {% load static %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- CSS Bootstrap Versión 5.2 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous"
+  />
+</head>
 <header>
-    <nav class="navbar navbar-expand-lg" style="background-color: aliceblue;">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(200, 228, 249);">
         <div class="container-fluid">
             <a class="navbar-brand m-lg-3" href="https://fundacionunlugar.com/"><img src="{% static 'img\logo.jpg' %}" alt=""></a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -13,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-lg-2 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-info mx-2" aria-current="page" href="{% url 'contenido' %}">Inicio</a>
+                        <a class="nav-link btn btn-outline-info m-1" aria-current="page" href="{% url 'contenido' %}">Inicio</a>
                     </li>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="btn-group mx-1" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle m-1" data-bs-toggle="dropdown" aria-expanded="false">
                           Usuarios
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -30,8 +40,8 @@
                           <li><a class="dropdown-item" href="{% url 'referencia' %}">Referencias registradas</a></li>                        
                         </ul>
                       </div>                   
-                      <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="btn-group mx-1" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-danger dropdown-toggle m-1" data-bs-toggle="dropdown" aria-expanded="false">
                           Datos
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">                          
@@ -46,27 +56,38 @@
                       </div>                                                          
                                           
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-danger mx-2" aria-current="page" href="{% url 'pagina404' %}">404</a>                        
+                      <div title="Error 404">
+                        <a class="mx-2" href="{% url 'pagina404' %}"><img src="{% static 'img/cuatro.JPG' %}" style="width: 50px;" alt=""></a>
+                      </div>                    
+                    </li>                          
+                    
+                    <li class="nav-item">
+                      <div title="Error 500">
+                       <a class="mx-2" href="{% url 'pagina500' %}"><img src="{% static 'img/cinco.JPG' %}" style="width: 46px;" alt=""></a>                        
+                      </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-secondary mx-2" aria-current="page" href="{% url 'pagina500' %}">500</a>                        
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-danger mx-2" aria-current="page" href="{% url 'ayuda' %}">Ayuda</a>                        
+                      <div title="Manual de usuario">
+                       <a class="mx-2" href="{% url 'ayuda' %}"><img src="{% static 'img/ayuda.JPG' %}" style="width: 38px;" alt=""></a>                                               
+                      </div>
                     </li> 
                     
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-info mx-2" aria-current="page" href="{% url 'politica' %}">Políticas de seguridad</a>                        
+                      <div title="Política de seguridad">
+                        <a class="mx-2" href="{% url 'politica' %}"><img src="{% static 'img/pseguridad.JPG' %}" style="width: 46px;" alt=""></a>                        
+                      </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-secondary mx-2" aria-current="page" href="{% url 'reload' %}">Sistema</a>                        
+                      <div title="Sistema">
+                       <a class="mx-2" href="{% url 'reload' %}"><img src="{% static 'img/sistema.JPG' %}" style="width: 46px;" alt=""></a>                        
+                      </div>
                     </li>
 
                      <!-- Boton modal -->
                     
                      <li class="nav-item">
                     
-                      <button style="margin-right: 30px;" type="button" class="btn btn-outline-success mx-lg-4" data-bs-toggle="modal"   data-bs-target="#exampleModal">
+                      <button style="margin-right: 30px;" type="button" class="btn btn-outline-success m-1" data-bs-toggle="modal"   data-bs-target="#exampleModal">
                          Cerrar Sesión
                        </button>
 
@@ -90,13 +111,19 @@
                      </div>
                      </div>
                      </div>
-                     </li>
-                    
+                     </li>             
 
                 </ul>
-            </div>
+            </div>                       
     </nav>
+    <p style="color: rgb(175, 206, 246)" class="mx-lg-5 mx-auto fst-italic fs-6">Iconos tomados de stock.adobe.com - libre derecho de autor</p>    
 </header>
+
+       <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+          crossorigin="anonymous"
+        ></script>
     
 
 <!-- Aqui termina el header-->

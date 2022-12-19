@@ -2,6 +2,7 @@ from django.forms import ModelForm, widgets
 from usuarios.models import Beneficiario,Acudiente,Padrino_Beneficiario,Padrino,Referencia
 from django.utils.translation import gettext_lazy as _
 
+
 class BeneficiarioForm(ModelForm):
     class Meta:
         model=Beneficiario
@@ -56,3 +57,5 @@ class ReferenciaEditarForm(ModelForm):
     class Meta:
         model=Referencia
         exclude=['documento','beneficiario']
+
+"""comentario"""
