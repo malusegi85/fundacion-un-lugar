@@ -10,25 +10,43 @@
 {% block contenido %}
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Beneficiarios</h3>
+        <h3 class="card-title mx-auto p-3 m-lg-3 m-5" style="color: #008; height: 20px; text-align: center;">Beneficiarios</h3>
     </div>
 
     <div class="card-body">
-        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap5 m-5">
 
             <div class="row">
                 <div class="col-sm-12">
-                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline m-5"
                         aria-describedby="example1_info">
                         <thead>
-                            <tr>
+                            <tr class="m-1">
+                                <form action="" method='POST'>
+                                    {% csrf_token %}
+                                    <td class="sorting_1 dtr-control" tabindex="0">
+                                        <input type="text" name="documento" maxlength="90" required="" id="id_documento">
+                                    </td>
+                                    <td><select name="tipoDocumento" required="" id="id_tipoDocumento">
+                                        <option value="T.I." selected="T.I.">-------</option>
+                                        <option value="T.I." selected="T.I.">Registro civil</option> 
+                                        <option value="T.I." selected="T.I.">Pasaporte</option>
+                                        <option value="T.I." selected="T.I.">Tarjeta de identidad</option>                                                         
+                                                           
+                                      
+                                      </select></td>                                    
+                                    <td><input class="btn btn-success" type="submit" value="Agregar"></td>
+                                </form>
+                            </tr>
+                            <tr style="color: #008;">
                                 <th>Documento</th>
                                 <th>Tipo de documento</th>
                                 <th>Nombres</th>
                                 <th>Apellidos</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>                           
+                           
 
                             {% for beneficiario in beneficiarios %}
 
@@ -36,31 +54,13 @@
 
                                 <td class="sorting_1 dtr-control" tabindex="0">{{beneficiario.documento}}</td>
                                 <td class="">{{beneficiario.tipoDocumento}}</td>
-                                <td><a href="" class="btn btn-succes fas fa-eye"></a></td>
-
+                                <td class="">{{beneficiario.nombres}}</td>
+                                <td class="">{{beneficiario.apellidos}}</td>
+                                <td><a href="" class="btn btn-outline-info fas fa-eye">Editar</a></td>
+                                <td><a href="" class="btn btn-outline-danger fas fa-eye">Eliminar</a></td>
                             </tr>
                             {% endfor %}
 
-                            <tr class="">
-                                <form action="" method='POST'>
-                                    {% csrf_token %}
-                                    <td class="sorting_1 dtr-control" tabindex="0">
-                                        <input type="text" name="documento" maxlength="90" required="" id="id_documento">
-                                    </td>
-                                    <td><select name="tipoDocumento" required="" id="id_tipoDocumento">
-                                        <option value="" selected="">Tipo de documento</option>
-                                      
-                                        
-                                        {% for acudiente in acudientes  %}
-                                        <option value="{{acudiente.id}}">{{acudiente.nombres}}</option> 
-                                        {% endfor %}
-                                            
-                                      
-                                      </select></td>
-                                    
-                                    <td><input class="btn btn-success" type="submit" value="Agregar"></td>
-                                </form>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
